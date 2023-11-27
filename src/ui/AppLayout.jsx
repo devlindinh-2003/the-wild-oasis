@@ -8,10 +8,19 @@ const StyledApplayout = styled.div`
   display: grid;
   grid-template-columns: 26rem 1fr;
   grid-template-rows: auto 1fr;
+  overflow: hidden;
 `;
 const Main = styled.main`
   padding: 4rem 4.8rem 6.4rem;
   height: 100vh;
+  overflow: scroll;
+`;
+const Container = styled.div`
+  max-width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
 `;
 
 const AppLayout = () => {
@@ -20,7 +29,9 @@ const AppLayout = () => {
       <Header />
       <Sidebar />
       <Main>
-        <Outlet />
+        <Container>
+          <Outlet />
+        </Container>
       </Main>
     </StyledApplayout>
   );

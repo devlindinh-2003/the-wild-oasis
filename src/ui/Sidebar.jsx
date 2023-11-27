@@ -10,6 +10,7 @@ const StyledSidebar = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* position: fixed  ; */
 `;
 
 const Sidebar = () => {
