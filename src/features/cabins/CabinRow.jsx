@@ -57,7 +57,7 @@ const CabinRow = ({ cabin }) => {
     description,
     image,
   } = cabin;
-  const { isCreating, creatingCabin } = useCreateCabin();
+  const { creatingCabin } = useCreateCabin();
   function handleDuplicate() {
     creatingCabin({
       name: `Copy of ${name}`,

@@ -21,12 +21,13 @@ export default function UpdateSettingsForm() {
   } = useSettings();
   if (isLoading) return <Spinner />;
 
-  function handleUpdateSetting(e, field) {
-    const { value } = e.target;
-    if (!value) return;
+  function handleUpdateSetting(e) {
+    const { id, value, defaultValue } = e.target;
+    if (!id || !value || defaultValue === value) return;
     updatingSetting({
-      [field]: value,
+      [id]: value,
     });
+    e.target.value = value;
   }
 
   return (
@@ -34,11 +35,11 @@ export default function UpdateSettingsForm() {
       <FormRow label="Minimum nights/booking">
         <Input
           type="number"
-          id="min-nights"
+          id="minBookingLength"
           defaultValue={minBookingLength}
           {...register('minBookingLength', {
             disabled: isUpdatingSetting,
-            onBlur: (e) => handleUpdateSetting(e, 'minBookingLength'),
+            onBlur: (e) => handleUpdateSetting(e),
           })}
         />
       </FormRow>
@@ -47,10 +48,10 @@ export default function UpdateSettingsForm() {
         <Input
           defaultValue={maxBookingLength}
           type="number"
-          id="max-nights"
+          id="maxBookingLength"
           {...register('maxBookingLength', {
             disabled: isUpdatingSetting,
-            onBlur: (e) => handleUpdateSetting(e, 'maxBookingLength'),
+            onBlur: (e) => handleUpdateSetting(e),
           })}
         />
       </FormRow>
@@ -59,10 +60,10 @@ export default function UpdateSettingsForm() {
         <Input
           defaultValue={maxGuestsPerBooking}
           type="number"
-          id="max-guests"
+          id="maxGuestsPerBooking"
           {...register('maxGuestsPerBooking', {
             disabled: isUpdatingSetting,
-            onBlur: (e) => handleUpdateSetting(e, 'maxGuestsPerBooking'),
+            onBlur: (e) => handleUpdateSetting(e),
           })}
         />
       </FormRow>
@@ -70,10 +71,10 @@ export default function UpdateSettingsForm() {
         <Input
           defaultValue={breakfastPrice}
           type="number"
-          id="breakfast-price"
+          id="breakfastPrice"
           {...register('breakfastPrice', {
             disabled: isUpdatingSetting,
-            onBlur: (e) => handleUpdateSetting(e, 'breakfastPrice'),
+            onBlur: (e) => handleUpdateSetting(e),
           })}
         />
       </FormRow>

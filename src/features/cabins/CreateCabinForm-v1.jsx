@@ -1,6 +1,5 @@
-import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import Input from '../../ui/Input';
 import Form from '../../ui/Form';
