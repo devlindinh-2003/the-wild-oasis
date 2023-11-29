@@ -3,12 +3,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import CreateCabinForm from './CreateCabinForm';
 import { useDeleteCabin } from './useDeleteCabin';
-import {
-  HiDocumentDuplicate,
-  HiOutlineDocumentDuplicate,
-  HiPencil,
-  HiTrash,
-} from 'react-icons/hi2';
+import { HiDocumentDuplicate, HiPencil, HiTrash } from 'react-icons/hi2';
 import { useCreateCabin } from './useCreateCabin';
 
 const TableRow = styled.div`
