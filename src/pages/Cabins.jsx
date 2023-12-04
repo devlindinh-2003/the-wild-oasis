@@ -5,6 +5,7 @@ import { getCabins } from '../services/apiCabins';
 import CabinTable from '../features/cabins/CabinTable';
 import Button from '../ui/Button';
 import CreateCabinForm from '../features/cabins/CreateCabinForm';
+import AddCabin from '../features/cabins/AddCabin';
 
 export default function Cabins() {
   const [showForm, setShowForm] = useState(false);
@@ -14,9 +15,10 @@ export default function Cabins() {
         <Heading as="h1">All cabins</Heading>
         <p>Filter/Sort</p>
       </Row>
-      <CabinTable />
-      <Button onClick={() => setShowForm(!showForm)}>Add new Cabin</Button>
-      {showForm && <CreateCabinForm />}
+      <Row>
+        <CabinTable />
+        <AddCabin />
+      </Row>
     </>
   );
 }
