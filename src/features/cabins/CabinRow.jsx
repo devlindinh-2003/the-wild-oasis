@@ -77,8 +77,8 @@ const CabinRow = ({ cabin }) => {
     <>
       <Table.Row role="role">
         <Img src={image} />
-        <div>Fits up to {maxCapacity} guests</div>
         <Cabin>{name}</Cabin>
+        <div>Fits up to {maxCapacity} guests</div>
         <Price>{formatCurrency(regularPrice)}</Price>
         {discount ? (
           <Discount>{formatCurrency(discount)}</Discount>
@@ -86,7 +86,6 @@ const CabinRow = ({ cabin }) => {
           <span>&mdash;</span>
         )}
         <div>
-          {/* Edit Cabin */}
           <Modal>
             <Menus.Menu>
               <Menus.Toggle id={cabinId} />
@@ -104,8 +103,8 @@ const CabinRow = ({ cabin }) => {
                   <Menus.Button icon={<HiPencil />}>Edit</Menus.Button>
                 </Modal.Open>
 
-                {/* Delete Cabin */}
                 <Modal.Open opens="delete-cabin">
+                  {/* Delete Cabin */}
                   <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
                 </Modal.Open>
               </Menus.List>
